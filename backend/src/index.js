@@ -16,11 +16,12 @@ app.use(cookieParser())
 app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/users',userRouter)
 
-app.use(errorMiddleware)
 
 app.get('/', (req,res)=>{
     res.json({message:"Hello World!!"})
 })
+
+app.use(errorMiddleware)
 
 app.listen(PORT,()=>{
     console.log(`Server is running at http://localhost:${PORT}`)
