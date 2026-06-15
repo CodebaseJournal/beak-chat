@@ -33,10 +33,4 @@ Oracle ARM VM (4 cores, 24GB RAM)
 
 
 
-    ```
-    Act as a senior software architect. Generate a `src/db/schema.js` file using Drizzle ORM and PostgreSQL for a real-time chat application.
-
-- Create a role status enum with the values member , moderator, admin, user
-
-- Create a users table with the fields id set to primary key with a random UUID, email, username, display_name, password_hash, email_verfied, email_verify_token, reset_password_token, reser_toekn_expires_at, avatar_url, bio, is_active, role which defaults to user(This one uses the enum), last_seen_at, created_at which defaults to now an updated_at
-    ```
+   
