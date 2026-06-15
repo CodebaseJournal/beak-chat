@@ -29,7 +29,7 @@ export const users = pgTable("users", {
 
   passwordHash: varchar("password_hash", { length: 255 }).notNull(),
 
-  emailVerfied: boolean("email_verfied").default(false).notNull(),
+  emailVerfied: boolean("email_verified").default(false).notNull(),
 
   emailVerifyToken: varchar("email_verify_token", { length: 255 }),
 
