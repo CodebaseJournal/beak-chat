@@ -23,13 +23,13 @@ export const users = pgTable("users", {
 
   email: varchar("email", { length: 255 }).notNull().unique(),
 
-  username: varchar("username", { length: 50 }).notNull().unique(),
+  username: varchar("username", { length: 50 }).unique(),
 
   displayName: varchar("display_name", { length: 100 }),
 
   passwordHash: varchar("password_hash", { length: 255 }).notNull(),
 
-  emailVerfied: boolean("email_verified").default(false).notNull(),
+  emailVerfied: boolean("email_verified").default(false),
 
   emailVerifyToken: varchar("email_verify_token", { length: 255 }),
 
