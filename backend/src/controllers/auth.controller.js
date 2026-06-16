@@ -67,7 +67,7 @@ export const signUp = async(req,res,next)=>{
        }
 
        console.error('SignUp error',error)
-       return res.status(500).json({message: "Internal Server Error",error:error.message})
+       return res.status(500).json({message: "Internal Server Error"})
     }
 }
 export const signIn = async(req,res,next)=>{
@@ -82,14 +82,17 @@ export const signIn = async(req,res,next)=>{
             const [user] = await db
             .select({
                 id:users.id,
-                passwordHash: users.passwordHash
+                passwordHash: users.passwordHash,
+                email: users.email,
+                username: users.username,
+                displayName: users.displayName
             })
             .from(users)
             .where(eq(users.email,email.toLowerCase().trim()))
 
             if(!user){
-                const error = new Error('User not found')
-                error.statusCode = 404
+                const error = new Error('Invalid Credentials')
+                error.statusCode = 401
                 throw error
             }
 
