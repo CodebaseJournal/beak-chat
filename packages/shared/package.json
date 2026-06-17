@@ -1,0 +1,13 @@
+{
+    "name": "@beak-chat/shared",
+    "version": "1.0.0",
+    "main": "./index.js",
+    "exports": {
+        ".": "./index.js",
+        "./schema/*": "./schemas/*.js"
+    },
+    "dependencies": {
+        "zod": "^4.4.3"
+    },
+    "type": "module"
+}
