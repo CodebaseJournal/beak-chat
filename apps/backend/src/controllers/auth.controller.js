@@ -9,9 +9,7 @@ import { db } from "../db/db.js"
 export const signUp = async(req,res,next)=>{
     const {email, username,displayName, password} = req.body
 
-    if(!email|| !password||!displayName){
-        return res.status(400).json({message:"email,display name and password are required"})
-    }
+    
     try {
         const newUser = await withTransaction(async (trx)=>{
             const [existingUser] = await trx
@@ -74,10 +72,6 @@ export const signIn = async(req,res,next)=>{
 
     try {
         const {email,password} = req.body
-
-        if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required' })
-    }
         
             const [user] = await db
             .select({
