@@ -1,10 +1,10 @@
 export const validate = (schema) => (req, res, next) => {
     const result = schema.safeParse(req.body);
     if (!result.success) {
-        return res.status(400).json({
-            message:"Validation Failed",
-            errors: result.error.flatten().fieldErrors
-        })
+        const error = new Error("Validation Failed");
+        error.statusCode = 400;
+        error.validationErrors = result.error.flatten().fieldErrors;
+        return next(error);
     }
 
     req.body = result.data;

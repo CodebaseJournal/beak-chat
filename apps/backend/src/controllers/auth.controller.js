@@ -30,7 +30,7 @@ export const signUp = async(req,res,next)=>{
             .insert(users)
             .values({
                 email:email.toLowerCase().trim(),
-                username: username?.toLowerCase().trim()??null,
+                username: username?.toLowerCase().trim(),
                 displayName:displayName.trim(),
                 passwordHash:password_hash,
             })
